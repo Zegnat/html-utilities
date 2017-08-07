@@ -1,0 +1,19 @@
+{
+    "name": "zegnat/html-utilities",
+    "description": "Utility classes for working with HTML in PHP.",
+    "license": "0BSD",
+    "authors": [
+        {
+            "name": "Martijn van der Ven",
+            "email": "martijn@vanderven.se"
+        }
+    ],
+    "require": {
+        "ext-tidy": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zegnat\\Html\\": "src/"
+        }
+    }
+}
