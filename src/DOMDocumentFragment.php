@@ -13,7 +13,8 @@ class DOMDocumentFragment extends \DOMDocumentFragment
             return true;
         }
         libxml_use_internal_errors($previousHandling);
-        $dom = new \DOMDocument();
+        $domClass = get_class($this->ownerDocument);
+        $dom = new $domClass();
         do {
             $id = uniqid('id_');
         } while (strpos($data, $id) !== false);
