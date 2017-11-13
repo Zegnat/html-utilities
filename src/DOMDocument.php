@@ -6,6 +6,15 @@ namespace Zegnat\Html;
 
 class DOMDocument extends \DOMDocument
 {
+    public function loadHTML($string, $options = 0): bool
+    {
+        $previousHandling = libxml_use_internal_errors(true);
+        $string = mb_convert_encoding($string, 'HTML-ENTITIES', 'UTF-8');
+        $return = parent::loadHTML($string, $options);
+        libxml_use_internal_errors($previousHandling);
+        return $return;
+    }
+
     public function saveHTML(DOMNode $node = null): string
     {
         $tidy = new \Tidy();
